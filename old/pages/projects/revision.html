@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!-- Title above screen -->
+    <title>JK - revision</title>
+
+    <!-- Linking the CSS to the page -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/code.css">
+
+    <!-- Linking analytics to the page -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55946639-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body class="main_wrapper">
+    <div class="left_wrapper">
+        <h1>
+            <b>JOSH KING</b>
+            <p>projects | <a href="/pages/projects.html">back</a></p>
+        </h1>
+    </div>
+
+    <div class="right_wrapper">
+        <br>
+        <h2>
+            <a href="/index.html"><img class="home_button" src="/assets/img/home.png"></a>
+        </h2>
+    </div>
+
+    <h2 class="page_title_left">
+        <b>Revision</b>
+    </h2>
+
+    <p class="under_wrapper">
+        <span>
+            <b style="font-size:20px">What?</b><br>
+            <i>Revision</i> is a hacked Minecraft client that I wrote and developed for about a year. It went through numerous name changes until I finally settled on '<i>Revision</i>'. It features a fully working event dispatch system for implementing code into the runtime as well as a debug system that maintains any errors that occur and 'ping' them to the user.
+        </span>
+    </p>
+    <br>
+    <div class="fadein">
+        <img src="/assets/img/revision/img1.jpg">
+        <img src="/assets/img/revision/img2.jpg">
+        <img src="/assets/img/revision/img3.jpg">
+        <img src="/assets/img/revision/img4.jpg">
+        <img src="/assets/img/revision/img5.png">
+        <img src="/assets/img/revision/img6.png">
+        <img src="/assets/img/revision/img7.png">
+        <img src="/assets/img/revision/img8.jpg">
+        <img src="/assets/img/revision/img9.jpg">
+        <img src="/assets/img/revision/img10.png">
+    </div>
+    <br>
+    <p class="under_wrapper">
+        <span>
+             <b style="font-size:20px">Event Dispatch System</b><br>
+            Due to the way Minecraft was made, making a lightweight event dispatch system was essential in keeping the client running efficently as well as being able to sideload modules/plugins into the client. Due to the restrictions within Minecraft I created an event system that I named '<i>stmyhell</i>'.
+            
+            <pre><code data-language="java">/*
+ * EventHandler
+ *
+ * 8/23/2013
+ *
+ */
+
+package [REDACTED].revisionlib.event;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Processes the firing of events to registered listeners
+ * @author [REDACTED]
+ * @version 1
+ * @since 8/23/2013 3:00 PM
+ */
+public class EventHandler {
+
+    /**
+     * List of ListenerInstances used for firing events
+     */
+    private List'<'ListenerInstance'>' listeners = new ArrayList'<'ListenerInstance'>'();
+
+    /**
+     * Registers a listening class and all of its listening methods.
+     * @param listener Listening class
+     */
+    public void registerListener(EventListener listener) {
+        ListenerInstance listenerInstance = new ListenerInstance(listener);
+        this.listeners.add(listenerInstance);
+        this.registerMethods(listenerInstance);
+    }
+
+    /**
+     * Registers a listening class and all of its listening methods.
+     * @param listener ListenerInstance
+     */
+    private void registerMethods(ListenerInstance listener) {
+        for (Method method : listener.listener.getClass().getDeclaredMethods()) {
+            for (Annotation annotation : method.getDeclaredAnnotations()) {
+                if (annotation instanceof HandleEvent) {
+                    listener.methods.add(method);
+                }
+            }
+        }
+    }
+
+    /**
+     * Sends an event to all listening methods with a given priority
+     * @param event Target event
+     * @param priority Target priority
+     */
+    private void sendEventsToPriority(Event event, EventPriority priority){
+        for(ListenerInstance listenerInstance : this.listeners){
+            for (Method method : listenerInstance.methods) {
+                //Stop any cancelled events
+                if(event instanceof Cancellable){
+                    Cancellable cancellable = (Cancellable)event;
+                    if(cancellable.getCancelled()){
+                        return;
+                    }
+                }
+                if(method.getAnnotation(HandleEvent.class).priority() != priority)continue;
+                for (Class'<'?'>' c : method.getParameterTypes()) {
+                    if (event.getClass().isAssignableFrom(c)) {
+                        try {
+                            method.invoke(listenerInstance.listener, event);
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Sends an event to all of the listeners in order of priority
+     * @param event Target event
+     */
+    public void fireEvent(Event event){
+        for(EventPriority priority : EventPriority.values()){
+            this.sendEventsToPriority(event, priority);
+        }
+    }
+}</code></pre>
+        </span>
+    </p>
+    <br>
+
+    <p class="under_wrapper">
+        <span>
+             <b style="font-size:20px">Module Manager</b><br>
+            I created a module manager that finds modules using reflection and loads them into runtime. Using reflection means that I didn't have to specify what modules need to be loaded as well as making it very easy for the user to create their own modules and then implement them into <i>Revision</i>.
+        <pre><code data-language="java">/*
+ * ModuleManager
+ *
+ * 8/23/13
+ */
+
+package [REDACTED];
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import [REDACTED].revisionlib.reflection.ReflectionHelper;
+
+/**
+ * Provides management for modules
+ * @author [REDACTED]
+ * @version 1
+ * @since 8/23/13 6:17 PM
+ */
+public abstract class ModuleManager {
+
+    /**
+     * Loads classes and creates module objects from an internal package
+     * @param targetPackage The package location with folders 
+     * separated with periods
+     */
+    public Module[] createModuleInstancesFromPackage(String targetPackage) {
+        List'<'Module'>' moduleList = new ArrayList'<'Module'>'();
+        for(Class indexClass : ReflectionHelper.getClassesInPackage(targetPackage)) {
+            try {
+                Module module = (Module)indexClass.newInstance();
+                moduleList.add(module);
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (ClassCastException e) {
+                e.printStackTrace();
+            }
+        }
+        return moduleList.toArray(new Module[moduleList.size()]);
+    }
+    
+    /**
+     * Loads classes and creates module objects from an external jar
+     * @param packageDirectory The package location with folders
+     * separated with periods
+     * @param jarFile The target jar file to create modules from
+     */
+    public Module[] createModuleInstancesFromPackageInJar(File jarFile) {
+        List'<'Module'>' moduleList = new ArrayList'<'Module'>'();
+        
+        Class[] jarClassList = ReflectionHelper.getClassesFromExternalJar(jarFile);
+        
+        if (jarClassList != null) { 
+	        for(Class indexClass : jarClassList) {
+	            try {
+	                Module module = (Module)indexClass.newInstance();
+	                moduleList.add(module);
+	            } catch (InstantiationException e) {
+	                e.printStackTrace();
+	            } catch (IllegalAccessException e) {
+	                e.printStackTrace();
+	            } catch (ClassCastException e) {
+	                //e.printStackTrace();
+	            }
+	        }
+        }
+        
+        return moduleList.toArray(new Module[moduleList.size()]);
+    }
+
+    public abstract Module[] getModules();
+
+}</code></pre></span>
+    </p>
+
+    <p class="under_wrapper">
+        <span>
+             <b style="font-size:20px">Module</b><br>
+            This is what the Module class looked like. It would be extended by the indivdual modules.
+        <pre><code data-language="java">package [REDACTED].revisionlib.module;
+
+/**
+ * @author [REDACTED]
+ * @version 1
+ * @since 8/23/2013 6:19 PM
+ */
+public abstract class Module implements Toggleable, Titled {
+
+    /**
+     * Enabled state of the module
+     */
+    private boolean toggle;
+    /**
+     * Title of the module
+     */
+    private String title;
+
+    /**
+     * Creates a module with the specified title
+     * @param title Module title
+     */
+    public Module(String title) {
+        this.setTitle(title);
+    }
+
+    /**
+     * Creates a module using the class name as the title
+     */
+    public Module() {
+        this.setTitle(this.getClass().getSimpleName());
+    }
+
+    @Override
+    /**
+     * Sets the toggle state of a module
+     * @param toggle target toggle state
+     */
+    public boolean getToggled() {
+        return this.toggle;
+    }
+
+   @Override
+   /**
+    * @return The current toggle state of a module
+    */
+    public void setToggled(boolean toggle) {
+       this.toggle = toggle;
+    }
+
+    @Override
+    /**
+     * Sets the title of the module
+     * @param title Target title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    /**
+     * @returns The title of the module
+     */
+    public String getTitle() {
+        return this.title;
+    }
+
+}</code>
+        </pre>
+        </span>
+    </p>
+
+    <script src="/assets/js/rainbow-custom.min.js"></script>
+    <script src="/assets/js/slideshow.js"></script>
+</body>
+
+<footer>
+    <p><a href="/pages/about.html">about</a> | <a href="/pages/projects.html">projects</a> | <a href="/pages/gallery.html">gallery</a> | <a href="/pages/contact.html">contact</a> | <a href="/pages/specification.html">specification</a></p>
+    &copy; Josh King
+</footer>
+
+</html>

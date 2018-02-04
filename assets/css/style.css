@@ -1,0 +1,783 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,207cca+0,2989d8+53,7db9e8+100 */
+    background: rgb(30, 87, 153);
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg, rgba(30, 87, 153, 1) 0%, rgba(32, 124, 202, 1) 0%, rgba(41, 137, 216, 1) 53%, rgba(125, 185, 232, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(30, 87, 153, 1) 0%, rgba(32, 124, 202, 1) 0%, rgba(41, 137, 216, 1) 53%, rgba(125, 185, 232, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(30, 87, 153, 1) 0%, rgba(32, 124, 202, 1) 0%, rgba(41, 137, 216, 1) 53%, rgba(125, 185, 232, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    width: 100%;
+    height: 100%;
+
+    /* Font setting */
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    /* Fade in between pages */
+    -webkit-animation: fadein 1.5s;
+    animation: fadein 1.5s;
+}
+
+/* Fade in between pages */
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0.1
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+
+
+/* Fade in between pages */
+
+@keyframes fadein {
+    from {
+        opacity: 0.1
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+
+
+/* 
+    For the main profile image.
+*/
+
+.splash {
+    /* absolute center .splash within .splash-container */
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/* This is the subheading that appears on the blue section */
+
+.splash-head {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+
+/* This is the subheading that appears on the blue section */
+
+.splash-subhead {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    font-size: 15px;
+}
+
+/*
+ * DEFAULT
+ *      START
+ */
+
+.default-profile {
+    border-radius: 50%;
+    max-width: 300px;
+    min-width: 225px;
+}
+
+.default-back-btn {
+    margin: 10px;
+    /** Not sure about the rounded solo buttons */
+    //border-radius: 5px;
+}
+
+.default-button {
+    display: inline-block;
+    padding: 1em;
+    background-color: #E6E6E6;
+    text-decoration: none;
+    color: #2098D1;
+    font-weight: bold;
+}
+
+.default-head {
+    display: inline-block;
+    padding: 1em;
+    background-color: transparent;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.default-head p {
+    margin-top: 0px;
+}
+
+.default-subhead {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    font-size: 15px;
+    line-height: 0em;
+    margin-bottom: 10px;
+}
+
+/**
+ *  BUTTONS BASED OFF PURECSS LIBRARY
+ *      https://purecss.io;
+ */
+
+.default-button {
+    /* Structure */
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+/* Inherit .pure-g styles */
+.default-button-group {
+    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+    *letter-spacing: normal; /* reset IE < 8 */
+    *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
+    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+}
+
+.opera-only :-o-prefocus,
+.default-button-group {
+    word-spacing: -0.43em;
+}
+
+.default-button-group .default-button {
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+/* Button Groups */
+.default-button-group .default-button {
+    margin: 0;
+    border-radius: 0;
+    border-right: 1px solid #111;  /* fallback color for rgba() for IE7/8 */
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.default-button-group .default-button:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.default-button-group .default-button:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/*
+ * DEFAULT
+ *      END
+ */
+
+/*
+ * MAIN VIEW 
+ *      START
+ */
+.view-main {
+    width: 95%;
+    margin: auto;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.view-main-profile {  }
+
+.view-main-button-group { 
+  position: relative;
+}
+
+.view-main-footer {
+  font-size: 87.5%;
+  border-top: 1px solid #646464;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background: #646464;
+  left: 0px;
+  right: 0px;
+}
+
+.view-main-footer p {
+  margin: 1px 5px 0px 5px;
+  color: white;
+  text-align:center;
+}
+
+.view-main-footer a {
+  color: #2098D1;
+  text-decoration: none;
+}
+
+.view-main-footer a:hover {
+  color: #D59127;
+}
+
+/*
+ * MAIN VIEW ICON CSS
+ *      START
+ */
+
+.view-main-icon-group {
+    margin: 0.5em;
+}
+
+.view-main-icon-group a {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.view-main-spotify:hover {
+    color: #1ED760;
+}
+
+.view-main-youtube:hover {
+    color: #FF0000;
+}
+
+.view-main-linkedin:hover {
+    color: #0077B5;
+}
+
+.view-main-github:hover {
+    color: #000000;
+}
+
+.view-main-steam:hover {
+    color: #333333;
+}
+
+
+/*
+ * MAIN VIEW ICON CSS
+ *      END
+ */
+
+/*
+ * MAIN VIEW
+ *      END
+ */
+
+/**
+ * ABOUT VIEW
+ *     START
+ */
+
+.view-about {
+    width: 95%;
+    margin: auto;
+    position: absolute;
+    top: 25%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.view-about-body {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.view-about-nav-right {
+    text-align: left;
+    padding: 0px 50px 7px 5px;
+}
+
+.view-about-nav-left {
+    text-align: right;
+    padding: 0px 5px 7px 50px;
+}
+
+.view-about-nav-head {
+    display: inline-block;
+    background-color: transparent;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 10px 0px 0px 0px;
+}
+
+.view-about-nav-head p {
+   margin: 5px;
+}
+
+.view-about-nav-subhead {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    font-size: 10px;
+    line-height: 0em;
+    margin-bottom: 10px;
+}
+
+/**
+ * ABOUT VIEW 
+ *     CHARTS START
+ *       Original: https://codepen.io/vajkri/full/NxzZwL
+ */
+
+.view-about-charts {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.view-about-chart {
+  margin: 30px 0 0;
+}
+
+.view-about-chart:first-child {
+  margin: 0;
+}
+
+.view-about-chart-horiz {
+  overflow: hidden;
+  list-style-type: none;
+  padding: 0;
+}
+
+.view-about-chart-bar {
+  height: 30px;
+  margin-bottom: 10px;
+  background: linear-gradient(to left, #1CDECF, #1DC1E8);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  opacity: 0;
+  animation: 1s animation-draw-in ease forwards;
+}
+
+.view-about-chart-main .view-about-chart-bar:nth-of-type(10) {
+  animation-delay: 2.5s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(9) {
+  animation-delay: 2.3s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(8) {
+  animation-delay: 2.1s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(7) {
+  animation-delay: 1.9s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(6) {
+  animation-delay: 1.6s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(5) {
+  animation-delay: 1.3s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(4) {
+  animation-delay: 1.0s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(3) {
+  animation-delay: 0.7s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+.view-about-chart-main .view-about-chart-bar:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+
+.view-about-chart-label {
+  padding-left: 10px;
+  line-height: 30px;
+  color: white;
+}
+
+@keyframes animation-draw-in {
+  0% {
+    transform: translateX(-200%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/**
+ * ABOUT VIEW 
+ *     CHARTS END
+ */
+
+/**
+ * ABOUT VIEW
+ *     END
+ */
+
+/*
+ * PROJECT VIEW
+ *      REVISION START
+ */
+
+.project-revision {
+    text-align: justify !important;
+    background-image: url("../../assets/img/revision-still.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20%;
+    background-position: 0% 5%;
+    color: transparent;
+
+    /* Border on the top item*/
+    border-radius: 10px 10px 0px 0px;
+}
+
+.project-revision:hover {
+    background-image: url("../../assets/img/revision-still-opac.jpg");
+    color: white !important;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+
+
+/*
+ * PROJECT VIEW
+ *      REVISION END
+ */
+
+
+/*
+ * PROJECT VIEW
+ *      NOTBOT START
+ */
+
+.project-notbot {
+    text-align: justify !important;
+    background-image: url("../../assets/img/osrs-still.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20%;
+    background-position: center;
+    color: transparent;
+}
+
+.project-notbot:hover {
+    background-image: url("../../assets/img/osrs-still-opac.png");
+    color: white !important;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+
+
+/*
+ * PROJECT VIEW
+ *      NOTBOT END
+ */
+
+
+/*
+ * PROJECT VIEW
+ *      TRUEAGILITY START
+ */
+
+.project-trueagility {
+    text-align: justify !important;
+    background-image: url("../../assets/img/agility-still.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20%;
+    background-position: 0% 25%;
+    color: transparent;
+}
+
+.project-trueagility:hover {
+    background-image: url("../../assets/img/agility-still-opac.png");
+    color: white !important;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+/*
+ * PROJECT VIEW
+ *      TRUEAGILITY END
+ */
+
+
+/*
+ * PROJECT VIEW
+ *      ASTERFIELD START
+ */
+
+.project-asterfield {
+    text-align: justify !important;
+    background-image: url("../../assets/img/asterfield-still.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20%;
+    background-position: 0% 65%;
+    color: transparent;
+
+
+    /* Border on the bottom item*/
+    border-radius: 0px 0px 10px 10px;
+}
+
+.project-asterfield:hover {
+    background-image: url("../../assets/img/asterfield-still-opac.png");
+    color: white !important;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+/*
+ * PROJECT VIEW
+ *      ASTERFIELD END
+ */
+
+
+/*
+ * PROJECT VIEW
+ *   NON-SPECIFIC
+ *      START
+ */
+
+.project-notbot:hover a,
+.project-revision:hover a,
+.project-asterfield:hover a,
+.project-trueagility:hover a {
+    color: #2786D5;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.project-notbot a:hover,
+.project-revision a:hover,
+.project-asterfield a:hover,
+.project-trueagility a:hover {
+    color: #D59127;
+}
+
+.project-notbot:hover h1,
+.project-revision:hover h1,
+.project-asterfield:hover h1,
+.project-trueagility:hover h1 {
+    color: white;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.project-notbot h1,
+.project-revision h1,
+.project-asterfield h1,
+.project-trueagility h1 {
+    text-transform: uppercase;
+    padding: 10px 0px 0px 10px;
+    margin-top: 0px;
+    color: #2786D5;
+}
+
+.project-notbot p,
+.project-revision p,
+.project-asterfield p,
+.project-trueagility p {
+    padding: 10px 10px 0px 10px;
+    margin-top: 0px;
+}
+
+.project-notbot a,
+.project-revision a,
+.project-asterfield a,
+.project-trueagility a,
+.project-icon a {
+    text-decoration: none;
+    color: transparent;
+}
+
+.project-right h1 {
+    text-align: right;
+    padding-right: 10px;
+}
+
+
+.view-projects {
+    width: 95%;
+    margin: auto;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    /* I don't like stretching */
+    max-width: 1450px;
+}
+
+.project-icon-group {
+    font-size: 75px;
+    text-align: center !important;
+}
+
+.project-icon {
+    vertical-align: middle;
+}
+
+
+/*
+ * PROJECT VIEW
+ *   NON-SPECIFIC
+ *      END
+ */
+
+/*!
+ * Hover.css (http://ianlunn.github.io/Hover/)
+ * Version: 2.2.1
+ * Author: Ian Lunn @IanLunn
+ * Author URL: http://ianlunn.co.uk/
+ * Github: https://github.com/IanLunn/Hover
+ * Hover.css Copyright Ian Lunn 2017. Generated with Sass.
+ */
+
+ /* Reveal from outside */
+.hvr-reveal {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.hvr-reveal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 0;
+  -webkit-transition-property: border-width;
+  transition-property: border-width;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-reveal:hover:before, .hvr-reveal:focus:before, .hvr-reveal:active:before {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  border-width: 4px;
+}
+
+ /* Underline From Center */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #2098D1;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
+
+/** Turn underline orange on click */
+.hvr-underline-from-center:active:before {
+    background: #D59127;
+}

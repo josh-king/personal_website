@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!-- Title above screen -->
+    <title>JK - oop</title>
+
+    <!-- Linking the CSS to the page -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/code.css">
+
+    <!-- Linking analytics to the page -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55946639-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body class="main_wrapper">    
+    <div class="left_wrapper">
+        <h1>
+            <b>JOSH KING</b>
+            <p>projects | <a href="/pages/projects.html">back</a></p>
+        </h1>
+    </div>
+
+    <div class="right_wrapper">
+        <br>
+        <h2>
+            <a href="/index.html"><img class="home_button" src="/assets/img/home.png"></a>
+        </h2>
+    </div>
+    <h2 class="page_title_left">
+        <b>Object Oriented Programming Concepts</b>
+    </h2>
+    <p class="under_wrapper">
+        <b style="font-size:20px">Introduction</b><br>
+        <i>What is object oriented programming?</i> Well in the shortest way possible writing object-oriented programs involves creating classes, creating objects from those classes, and creating applications, which are stand-alone executable programs that use those objects. But that's a lot of nothing to someone who doesn't know much about programming right? Well, not really; A class is just a <i>blueprint</i>, it defines data fields and methods, An object is just an instance* of a class(So for example: Computer c = new Computer();). Throughout this essay I will be using a Computer as an example.
+
+        <pre><code data-language="java">package uk.josh-king.concepts;
+
+/**
+ * This is the Computer class which holds all of the data for the individual
+ * computers. Method overriding allows Java to invoke method based on a
+ * particular object at run-time instead of declared type while coding.
+ * 
+ * @author Josh
+ * @since 08/06/2013
+ */
+public class Computer {
+
+	protected String name;
+	protected String manufacturer;
+	protected double price;
+	protected EnumOS os;
+
+	/**
+	 * This is the main computer constructor.
+	 * 
+	 * @param s
+	 *    Name of the computer
+	 * @param s0
+	 *    Manufacturer which makes the computer
+	 * @param d
+	 *    Price of the individual computer
+	 * @param s1
+	 *    Operating system for the computer
+	 */
+	public Computer(final String s, final String s0, final double d, final EnumOS s1) {
+		this.name = s;
+		this.manufacturer = s0;
+		this.price = d;
+		this.os = s1;
+	}
+
+	public enum EnumOS {
+		WINDOWS, LION;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public final String getName() {
+		return this.name;
+	}
+
+	/**
+	 * @return the manufacturer
+	 */
+	public final String getManufacturer() {
+		return this.manufacturer;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public final double getPrice() {
+		return this.price;
+	}
+
+	/**
+	 * @return the os
+	 */
+	public final EnumOS getOs() {
+		return this.os;
+	}
+
+}</code></pre>
+
+    </p>
+    <p class="under_wrapper">
+        <span>
+            <i style="font-size:17px">There are three main types of object orientated techniques;</i><br>
+            <span style="font-size:17px">
+                * Polymorphism<br>
+                * Encapsulation<br>
+                * Inheritance<br><br>
+            </span>
+
+        <b style="font-size:17px">Polymorphism</b><br>
+        <i>Polymorphism</i> is an object orientated concept which advise the use of a common interface instead of concrete implementation while writing code. When we program an interface our code is capable of handling any new requirement or enhancement which may arise due to new implementation of our common interface. If we don't use common interface and rely on concrete implementation, we always need to change and duplicate most of our code to support new implementation. SO in short it makes it easier to add new factors into the code. There are two kinds of polymorphism; <i>Overriding</i> and <i>Overloading</i>.<br><br>
+
+        <i><b>Overriding</b></i> occurs when a class declares a method with the same signature as that of an inherited method. It is usually used to make the methods within a class more specific. Invoking the superclass' method (from inside the class) is done with the syntax super.name(parameters).For example;
+        <pre><code data-language="java">package uk.josh-king.concepts;
+
+public class AcerComputer extends Computer {
+
+	public AcerComputer() {
+		super("Aspire", "Acer", 156.04, EnumOS.WINDOWS);
+	}
+
+}</code></pre>
+        </span>
+    </p>
+
+    <p class="under_wrapper">
+        <span>
+            <i><b>Overloading</b></i> occurs when a class declares two or more methods with the same name but different signatures. When a message is sent to an object or class with overloaded methods, the method with the best matching signature is the one that is invoked. If the message and the method have a different number of parameters, no match is possible. However if there is no clear best match, Java reports a syntax error.
+        </span>
+    </p>
+
+    <p class="under_wrapper" style="display:block; margin: 0 auto;">
+        <span>
+            <b style="font-size:17px;">Encapsulation</b><br>
+                <i>Encapsulation</i> means putting together all the variables (instance variables) and the methods into a single unit called Class. Programmers sometimes refer to encapsulation as using a black box*. A programmer can access and use the methods and data contained in the black box but cannot change them. Below example shows the Computer class with properties, which can be set once while creating object using constructor arguments. Properties can be accessed using getter methods which are having public access modifiers.<br><br>
+            <pre><code data-language="java">/**
+* @return the name
+*/
+public final String getName() {
+    return this.name;
+}
+
+/**
+* @return the manufacturer
+*/
+public final String getManufacturer() {
+    return this.manufacturer;
+}
+
+/**
+* @return the price
+*/
+public final double getPrice() {
+    return this.price;
+}
+
+/**
+* @return the os
+*/
+public final EnumOS getOs() {
+    return this.os;
+}</code></pre>
+            </span>
+    </p>
+    <p class="under_wrapper">
+        <span>
+            <b style="font-size:17px">Inheritance</b><br>
+                <i>Inheritance </i> is commonly used state and behavior from other classes. In this example, Computer now becomes the superclass of HPComputer, AcerComputer, and AppleComputer. In the Java, each class is allowed to have one direct superclass. The syntax for creating a subclass is simple; At the beginning of your class declaration, use the extends keyword, followed by the name of the class to inherit from:
+            <pre><code data-language="java">package uk.josh-king.concepts;
+
+public class AppleComputer extends Computer {
+
+	public AppleComputer() {
+	    super("Mac", "Apple", 999.99, EnumOS.LION);
+    }
+
+}</code></pre>
+            
+        </span>
+    </p>
+    <p class="under_wrapper">
+        <span>
+            instance*: An object is an instance of a class.<br>
+            black box*: In science and engineering, a black box is a device, system or object which can be viewed in terms of its input, output and transfer characteristics without any knowledge of its internal workings.
+        </span>
+    </p>
+
+    <script src="/assets/js/rainbow-custom.min.js"></script>
+
+</body>
+
+<footer>
+    <p><a href="/pages/about.html">about</a> | <a href="/pages/projects.html">projects</a> | <a href="/pages/gallery.html">gallery</a> | <a href="/pages/contact.html">contact</a> | <a href="/pages/specification.html">specification</a></p>
+    &copy; Josh King
+</footer>
+
+</html>
