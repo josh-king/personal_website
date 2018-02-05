@@ -179,6 +179,7 @@ body {
 
 .default-nav-head p {
    margin: 5px;
+   padding-top: 5px;
 }
 
 .default-nav-subhead {
@@ -469,6 +470,29 @@ body {
  * ABOUT VIEW
  *     END
  */
+
+/**
+ * CONTACT VIEW
+ *     START
+ */
+
+.view-contact {
+    width: 95%;
+    margin: auto;
+    position: absolute;
+    top: 25%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/**
+ * CONTACT VIEW
+ *     END
+ */
+
 
 /*
  * PROJECT VIEW

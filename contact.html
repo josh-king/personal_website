@@ -6,7 +6,8 @@
     <meta name="author" content="Josh King">
     <meta name="keywords" content="josh, king, personal, full, stack, development, html, java">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=750, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55946639-1"></script>
     <script>
@@ -20,21 +21,42 @@
     <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png" />
-    <!-- Importing jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <!-- Importing Pure grids/forms -->
+    <link rel="stylesheet" type="text/css" href="assets/css/dist/pure/grids-min.css">
+     <link rel="stylesheet" type="text/css" href="assets/css/dist/pure/forms-min.css">
     <!--Import style.css-->
     <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
     <title>JK</title>
 </head>
 
 <body>
-    <div class="splash">
-        <p class="splash-head">
-            Contact
-        </p>
-        
-        <a class="default-button default-back-btn hvr-underline-from-center" href="/../">Back</a>
+    <div class="view-contact">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <a class="hvr-reveal default-nav-head default-nav-left" href="about.html">
+                    <p><i class="fas fa-caret-left"></i> About</p>
+                    <p class="default-nav-subhead">
+                        Skills & Biod
+                    </p>
+                </a>
+                <div class="default-head hvr-reveal">
+                    <p>Contact</p>
+                    <p class="default-subhead">
+                        Get in touch
+                    </p>
+                </div>
+                <a class="hvr-reveal default-nav-head default-nav-right" href="projects.html">
+                    <p>Projects <i class="fas fa-caret-right"></i></p>
+                    <p class="default-nav-subhead">
+                        Previous Work
+                    </p>
+                </a>
+            </div>
+        </div>
+
+        <div class="pure-u-1-1">
+            <a class="default-button default-back-btn hvr-underline-from-center" href="index.html">Home</a>
+        </div>
     </div>
 </body>
 
