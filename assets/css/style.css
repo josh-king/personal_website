@@ -71,27 +71,6 @@ body {
     text-transform: uppercase;
 }
 
-
-/* This is the subheading that appears on the blue section */
-
-.splash-head {
-    color: white;
-    letter-spacing: 0.05em;
-    opacity: 0.8;
-    font-size: 25px;
-    text-transform: uppercase;
-}
-
-
-/* This is the subheading that appears on the blue section */
-
-.splash-subhead {
-    color: white;
-    letter-spacing: 0.05em;
-    opacity: 0.8;
-    font-size: 15px;
-}
-
 /*
  * DEFAULT
  *      START
