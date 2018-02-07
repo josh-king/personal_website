@@ -344,6 +344,8 @@ body {
     right: 0;
     text-align: center;
     text-transform: uppercase;
+    /* I don't like stretching */
+    max-width: 1450px;
 }
 
 .view-about-body {
@@ -486,6 +488,7 @@ body {
     height: 20%;
     background-position: 0% 5%;
     color: transparent;
+    min-height: 175px;
 
     /* Border on the top item*/
     border-radius: 10px 10px 0px 0px;
@@ -501,13 +504,10 @@ body {
     transition: .5s;
 }
 
-
-
 /*
  * PROJECT VIEW
  *      REVISION END
  */
-
 
 /*
  * PROJECT VIEW
@@ -522,6 +522,7 @@ body {
     height: 20%;
     background-position: center;
     color: transparent;
+    min-height: 175px;
 }
 
 .project-notbot:hover {
@@ -533,8 +534,6 @@ body {
     -webkit-transition: .5s;
     transition: .5s;
 }
-
-
 
 /*
  * PROJECT VIEW
@@ -555,6 +554,7 @@ body {
     height: 20%;
     background-position: 0% 25%;
     color: transparent;
+    min-height: 175px;
 }
 
 .project-trueagility:hover {
@@ -585,6 +585,7 @@ body {
     height: 20%;
     background-position: 0% 65%;
     color: transparent;
+    min-height: 175px;
 
 
     /* Border on the bottom item*/
@@ -691,7 +692,7 @@ body {
 }
 
 .project-icon-group {
-    font-size: 75px;
+    font-size: 50px;
     text-align: center !important;
 }
 
@@ -703,6 +704,96 @@ body {
 /*
  * PROJECT VIEW
  *   NON-SPECIFIC
+ *      END
+ */
+
+/*
+ * SNIPPETS VIEW
+ *      START
+ */
+
+.view-snippets {
+    width: 95%;
+    margin: auto;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    /* I don't like stretching */
+    max-width: 1750px;
+}
+
+.view-snippets-list {
+    min-width: 20%;
+}
+
+.view-snippets-snippet {
+    background-color: #ffffff;
+    border-color: #C4DEF4;
+    border-width: 5px;
+    text-align: left;
+    border-radius: 3px;
+    max-height: 250px;
+    margin-bottom: -10px;
+    padding: 5px 5px 0px 5px;
+    box-shadow: 2px 2px grey;
+
+    text-indent: none;
+    list-style-type: none;
+
+    transition: all .2s ease-in-out; 
+}
+
+.view-snippets-snippet:hover {
+     transform: scale(1.05); 
+}
+
+.view-snippets-snippet-title {
+    line-height: 0.3em;
+}
+
+.view-snippets-snippet-language {
+    line-height: 0em;
+    
+    color: white;
+    font-size: 15px;
+}
+
+.view-snippets-snippet-body {
+    padding: 2px 2px 2px 2px;
+}
+
+.view-snippets-snippet-language a {
+    border-radius: 3px;
+    padding: 1px 3px 1px 3px;
+    margin-left: 2px;
+}
+
+
+.label-java {
+    background-color: #E11F21;
+}
+
+.label-vba {
+    background-color: #68217A;
+}
+
+.label-php {
+    background-color: #666699;
+}
+
+.label-html {
+    background-color: #F1662B;
+}
+
+.label-css {
+    background-color: #1C88C7;
+}
+
+/*
+ * SNIPPETS VIEW
  *      END
  */
 
